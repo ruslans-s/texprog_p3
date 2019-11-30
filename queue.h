@@ -2,6 +2,7 @@
 #define QUEUE_H
 #include<QVector>
 #include "weatherd.h"
+#include "valve.h"
 class queue
 {
 protected:
@@ -12,6 +13,7 @@ public:
     int numberWeatherD();
     bool addWeatherD(WeatherD);
     bool removeWeatherD();
+    void tic(QVector<valve>);
 };
 
 #endif // QUEUE_H

@@ -1,11 +1,13 @@
 #include "evm.h"
 #include "statisticmanager.h"
-evm::evm(int newprocessingTime, int newtact)
+evm::evm()
 {
+
+};
+void evm::setsetting(int newprocessingTime, int newtact){
     processinTime = newprocessingTime;
     tact = newtact;
-};
-
+}
 void evm::newWeatherD(WeatherD* newWeatherD) {
     WeatherDt = newWeatherD;
     busy=true;
@@ -19,6 +21,6 @@ void evm::tic(){
 }
 void evm::deleteweatherd(){
     busy=false;
-    StatisticManager.addclients(WeatherDt);
+    //StatisticManager.addclients(WeatherDt);
    // return WeatherDt;
 }

@@ -9,23 +9,12 @@ protected:
     int waittime;
 public:
     valve();
-    bool chekopened() {
-        return opened;
-    }
-    void open() {
-        opened = true;
-    }
-    void close() {
-        opened = false;
-    }
-    void getwaittime(int nwaittime){
-        waittime=nwaittime;
-    }
-    void chekwaittime(int wwaittime) {
-    if (wwaittime>=waittime){
-        opened= true;
-    }
-    }
+    bool chekopened();
+    void open() ;
+    void close();
+    void getwaittime(int);
+    void chekwaittime(int);
+
 };
 
 #endif // VALVE_H

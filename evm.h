@@ -11,7 +11,8 @@ protected:
     int workingtime; //Время работы с текущим клиентом
     WeatherD* WeatherDt;
 public:
-    evm(int, int);
+    evm();
+    void setsetting(int,int);
     void newWeatherD(WeatherD*);
     bool chekBusy();
     void tic();
