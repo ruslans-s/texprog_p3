@@ -11,7 +11,7 @@ public:
     queue();
     bool chekWeatherD();
     int numberWeatherD();
-    bool addWeatherD(WeatherD);
+    void addWeatherD();
     bool removeWeatherD();
     void tic(QVector<valve>);
 };

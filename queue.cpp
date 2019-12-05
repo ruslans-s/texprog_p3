@@ -14,9 +14,9 @@ bool queue::chekWeatherD() {
 int queue::numberWeatherD() {
     return WeatherDlist.size();
 }
-bool queue::addWeatherD(WeatherD newWeatherD) {
-    WeatherDlist.push_back(newWeatherD);
-    return true;
+void queue::addWeatherD() {
+    WeatherDlist.resize(WeatherDlist.size()+1);
+
 }
 bool queue::removeWeatherD() {
     if (WeatherDlist.size() > 0) {
