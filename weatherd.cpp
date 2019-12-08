@@ -11,5 +11,5 @@ void WeatherD::tic(){
 waitingtime++;
 }
 int WeatherD::getwaitingtime(){
-return waitingtime++;
+return waitingtime;
 }

@@ -7,13 +7,15 @@ class queue
 {
 protected:
     QVector<WeatherD> WeatherDlist;
+    WeatherD WeatherDs;
 public:
     queue();
     bool chekWeatherD();
     int numberWeatherD();
     void addWeatherD();
     bool removeWeatherD();
-    void tic(QVector<valve>);
+    void tic();
+    WeatherD getFirstWeatherD();
 };
 
 #endif // QUEUE_H

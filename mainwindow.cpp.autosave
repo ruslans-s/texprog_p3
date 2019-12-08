@@ -54,6 +54,8 @@ if(queue.chekWeatherD()){
         queue.removeWeatherD();
         ui->logView->addItem("Заявка удалена");
     }
+    
+    
 }
 numbercycle++;
 }

@@ -10,10 +10,10 @@ protected:
     int timework;
     int tact;
 public:
-    StatisticManager(int,int);
+    void StatisticManagers(int,int);
     void tic();
     int getinfomodeling(int,int);
-    void addclients(WeatherD* WeatherD);
+    void addclients(WeatherD WeatherD);
 };
 
 #endif // STATISTICMANAGER_H

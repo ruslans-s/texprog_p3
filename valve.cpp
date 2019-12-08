@@ -18,5 +18,8 @@ void valve::getwaittime(int nwaittime){
 void valve::chekwaittime(int wwaittime) {
 if (wwaittime>=waittime){
     opened= true;
-}
+}};
+void valve::setTimeCheker(){
+timeCheker=true;
+
 };

@@ -4,7 +4,7 @@
 #include <math.h>
 #include <iostream>
 
-Generator::Generator(int newintensity, int newtact){
+void Generator::generator(int newintensity, int newtact){
     intensity = newintensity;
     tact = newtact;
     int kol=20;
@@ -12,5 +12,9 @@ Generator::Generator(int newintensity, int newtact){
 }
 void Generator::tic(){
     numbercycles++;
-    if(poissonAp[numbercycles]>0) queue->addWeatherD();
+    int tempinc;
+    while(poissonAp[numbercycles]>tempinc){
+    queue.addWeatherD();
+    tempinc++;
+    }
 }

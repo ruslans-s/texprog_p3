@@ -27,11 +27,13 @@ bool queue::removeWeatherD() {
         return false;
     }
 }
-void queue::tic(QVector<valve> ValveList){
-for(int i=ValveList.size()-1;i>=0;i--){
-    if(i=ValveList.size()-1){
-        ValveList[i].chekwaittime(WeatherDlist[0].getwaitingtime());
-    }
-    ValveList[i].chekopened();
+void queue::tic(){
+for(int i=WeatherDlist.size()-1;i>=0;i--){
+   WeatherDlist[i].tic();
+}}
+
+WeatherD queue::getFirstWeatherD(){
+    return WeatherDlist[0];
 }
-}
+
+

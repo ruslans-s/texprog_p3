@@ -6,6 +6,7 @@ class valve
 {
 protected:
     bool opened;
+    bool timeCheker=false;
     int waittime;
 public:
     valve();
@@ -14,7 +15,7 @@ public:
     void close();
     void getwaittime(int);
     void chekwaittime(int);
-
+    void setTimeCheker();
 };
 
 #endif // VALVE_H

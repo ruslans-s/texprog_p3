@@ -8,18 +8,20 @@
 #include <chrono>
 #include <random>
 #include "weatherd.h"
-queue *queue;
+
 class Generator
 {
 protected:
     int timetocreate;
     int tact;
-    int numbercycles;
+    int numbercycles=0;
     int intensity;
     WeatherD *WeatherDs;
     QVector<int> poissonAp;
+    queue queue;
+
 public:
-    Generator(int,int);
+    void generator(int,int);
     void tic();
 };
 
