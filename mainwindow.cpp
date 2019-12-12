@@ -25,6 +25,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
+ui->logView->clear();
 Generator Generatr;
 queue queue;
 StatisticManager StatisticManager;
@@ -41,7 +42,13 @@ valveList[0].getwaittime(10);
 QVector<int> timeWorkEvm={1,5};
 int numbercycle=0;
 //newManager->settings(timework,tact,timeWorkEvm);
-Generatr.generator(tact,timework);
+//Generatr.generator(tact,timework);
+Generatr.generator(3,1,24);
+QVector<int> poisson=Generatr.getVec();
+for(int i=0;i<=poisson.size()-1;i++)
+{
+    ui->logView->addItem(QString::number(poisson[i]));
+}
 while(numbercycle<timework){
 Generatr.tic();
 queue.tic();
@@ -54,6 +61,8 @@ if(queue.chekWeatherD()){
         queue.removeWeatherD();
         ui->logView->addItem("Заявка удалена");
     }
+
+
 }
 numbercycle++;
 }

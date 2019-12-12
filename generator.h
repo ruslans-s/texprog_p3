@@ -7,6 +7,7 @@
 #include <iostream>
 #include <chrono>
 #include <random>
+#include <QVector>
 #include "weatherd.h"
 
 class Generator
@@ -19,9 +20,10 @@ protected:
     WeatherD *WeatherDs;
     QVector<int> poissonAp;
     queue queue;
-
+    int timeWork;
 public:
-    void generator(int,int);
+    QVector<int> getVec();
+    void generator(int,int,int);
     void tic();
 };
 
