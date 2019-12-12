@@ -1,6 +1,6 @@
 #ifndef GENERATOR_H
 #define GENERATOR_H
-#include "queue.h"
+#include "mainwindow.h"
 #include "stdlib.h"
 #include "time.h"
 #include <math.h>
@@ -19,12 +19,12 @@ protected:
     int intensity;
     WeatherD *WeatherDs;
     QVector<int> poissonAp;
-    queue queue;
+   // queue queue;
     int timeWork;
 public:
     QVector<int> getVec();
     void generator(int,int,int);
-    void tic();
+    void tic(queue queue);
 };
 
 #endif // GENERATOR_H

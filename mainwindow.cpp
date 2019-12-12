@@ -5,7 +5,7 @@
 
 #include "evm.h"
 
-#include "queue.h"
+
 #include "statisticmanager.h"
 #include "valve.h"
 #include "weatherd.h"
@@ -27,14 +27,14 @@ void MainWindow::on_pushButton_clicked()
 {
 ui->logView->clear();
 Generator Generatr;
-queue queue;
+
 StatisticManager StatisticManager;
 valve valves;
 QVector<valve> valveList;
 //manager *newManager;
 
 int tact=10;
-int timework=9;
+int timework=23;
 int valvCount=3;
 valveList.resize(valvCount);
 valveList[0].setTimeCheker();
@@ -50,20 +50,22 @@ for(int i=0;i<=poisson.size()-1;i++)
     ui->logView->addItem(QString::number(poisson[i]));
 }
 while(numbercycle<timework){
-Generatr.tic();
+Generatr.tic(queue);
 queue.tic();
-
+// ui->logView->addItem("Цикл");
 valveList[0].close();
-if(queue.chekWeatherD()){
+if(queue.chekWeatherD()==true){
+     ui->logView->addItem("Заявка 213123удалена");
     valveList[0].chekwaittime((queue.getFirstWeatherD()).getwaitingtime());
     if(valveList[0].chekopened()){//Удаляем заявку если прошло более 10 часов
-        StatisticManager.addclients(queue.getFirstWeatherD());
+       // StatisticManager.addclients(queue.getFirstWeatherD());
         queue.removeWeatherD();
         ui->logView->addItem("Заявка удалена");
     }
 
 
 }
+  ui->logView->addItem(QString::number(queue.numberWeatherD()));
 numbercycle++;
 }
 }

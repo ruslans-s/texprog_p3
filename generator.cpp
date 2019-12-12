@@ -13,7 +13,7 @@ void Generator::generator(int newintensity, int newtact,int newTimeWork){
     std::default_random_engine generator (seed);
     std::poisson_distribution<int> distribution (intensity);
     int summ=0,temp;
-    for (int i=0; i<timeWork-1; ++i){
+    for (int i=0; i<timeWork; ++i){
      poissonAp.push_back(distribution(generator));
       summ+=temp;
     }
@@ -23,11 +23,10 @@ QVector<int> Generator::getVec(){
 return poissonAp;
 }
 
-void Generator::tic(){
+void Generator::tic(queue queue){
     numbercycles++;
-    int tempinc;
-    while(poissonAp[numbercycles]>tempinc){
-    queue.addWeatherD();
-    tempinc++;
-    }
+ //   int tempinc;
+   for(int i=0;i<=poissonAp[numbercycles];i++)  queue.addWeatherD();
+
+
 }

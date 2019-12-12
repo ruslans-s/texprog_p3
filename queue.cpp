@@ -5,7 +5,7 @@ queue::queue()
 
 }
 bool queue::chekWeatherD() {
-    if (WeatherDlist.size() > 0) {
+    if (WeatherDlist.count() != 0) {
         return true;
     } else {
         return false;
@@ -16,7 +16,6 @@ int queue::numberWeatherD() {
 }
 void queue::addWeatherD() {
     WeatherDlist.resize(WeatherDlist.size()+1);
-
 }
 bool queue::removeWeatherD() {
     if (WeatherDlist.size() > 0) {
