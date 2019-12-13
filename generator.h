@@ -24,7 +24,7 @@ protected:
 public:
     QVector<int> getVec();
     void generator(int,int,int);
-    void tic(queue queue);
+    int tic();
 };
 
 #endif // GENERATOR_H

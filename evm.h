@@ -5,15 +5,15 @@
 class evm
 {
 protected:
-    bool busy=false; //Занят или нет
+    bool busy; //Занят или нет
     int processinTime; //Время работы
     int tact; //Длительность такта
     int workingtime; //Время работы с текущим клиентом
-    WeatherD* WeatherDt;
+     WeatherD WeatherDt;
 public:
     evm();
     void setsetting(int,int);
-    void newWeatherD(WeatherD*);
+    void newWeatherD(WeatherD newWeatherD);
     bool chekBusy();
     void tic();
     void deleteweatherd();

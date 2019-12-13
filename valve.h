@@ -6,7 +6,7 @@ class valve
 {
 protected:
     bool opened;
-    bool timeCheker=false;
+    bool timeCheker;
     int waittime;
 public:
     valve();

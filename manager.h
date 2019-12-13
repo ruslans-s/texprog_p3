@@ -18,14 +18,18 @@ protected:
     QVector<evm> EVMlist;
     QVector<WeatherD> WeatherDlist;
     QVector<int> timeworkevm;
-
+    QVector<QString> logText;
     int numberWeatherD;
-    int tact;
+    int intensyt;
     int numberEVM=2;
     int numberValve=3;
+    Generator Generators;
+    queue Queues;
 public:
     manager();
     void settings(int,int,QVector<int>);
+    bool startModel();
+    QVector<QString> getLog();
 };
 
 #endif // MANAGER_H
