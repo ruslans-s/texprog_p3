@@ -12,6 +12,7 @@ public:
     bool cheksucces();
     void tic();
     int getwaitingtime();
+  //  void setWaitTime();
 };
 
 #endif // WEATHERD_H

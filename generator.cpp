@@ -12,22 +12,21 @@ void Generator::generator(int newintensity, int newtact,int newTimeWork){
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine generator (seed);
     std::poisson_distribution<int> distribution (intensity);
-    int summ=0,temp;
-    for (int i=0; i<timeWork-1; ++i){
+   // int summ=0,temp;
+    for (int i=1; i<=timeWork; ++i){
      poissonAp.push_back(distribution(generator));
-      summ+=temp;
+     // summ+=temp;
     }
 }
 
 QVector<int> Generator::getVec(){
 return poissonAp;
 }
-
-void Generator::tic(){
+int Generator::tic(){
     numbercycles++;
-    int tempinc;
-    while(poissonAp[numbercycles]>tempinc){
-    queue.addWeatherD();
-    tempinc++;
-    }
+    if (numbercycles>poissonAp.size()-1) numbercycles--;
+ //   int tempinc;
+ //  for(int i=0;i<=poissonAp[numbercycles];i++)  queue.addWeatherD();
+return poissonAp[numbercycles-1];
+
 }

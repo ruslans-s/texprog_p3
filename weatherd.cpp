@@ -2,7 +2,7 @@
 
 WeatherD::WeatherD()
 {
-
+waitingtime=0;
 }
 bool WeatherD::cheksucces(){
     return succes;
