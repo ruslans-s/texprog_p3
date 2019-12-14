@@ -12,6 +12,7 @@ public:
     bool cheksucces();
     void tic();
     int getwaitingtime();
+    void setSucces();
   //  void setWaitTime();
 };
 

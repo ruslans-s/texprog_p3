@@ -12,7 +12,7 @@ protected:
 public:
     void StatisticManagers(int,int);
     void tic();
-    int getinfomodeling(int,int);
+    QVector<QVector<int>> getinfomodeling();
     void addclients(WeatherD WeatherD);
 };
 

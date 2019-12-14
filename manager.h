@@ -13,7 +13,7 @@ class manager
 protected:
     int timework;
    // Generator *Generator;
-  //  StatisticManager *StatisticManager;
+    StatisticManager StatisticManagers;
     QVector<valve> ValveList;
     QVector<evm> EVMlist;
     QVector<WeatherD> WeatherDlist;
@@ -23,13 +23,16 @@ protected:
     int intensyt;
     int numberEVM=2;
     int numberValve=3;
+    int shelfLife;
+    bool timeEVM;
     Generator Generators;
     queue Queues;
 public:
     manager();
-    void settings(int,int,QVector<int>);
+    void settings(int,int,QVector<int>,int,bool);
     bool startModel();
     QVector<QString> getLog();
+    QVector<QVector<int>> getInfoModelling();
 };
 
 #endif // MANAGER_H

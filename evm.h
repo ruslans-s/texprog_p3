@@ -9,14 +9,20 @@ protected:
     int processinTime; //Время работы
     int tact; //Длительность такта
     int workingtime; //Время работы с текущим клиентом
-     WeatherD WeatherDt;
+    WeatherD WeatherDt;
+    bool timeEVM;
+    int waitTime;
+     //StatisticManager StatisticManagers;
 public:
     evm();
-    void setsetting(int,int);
+    void setsetting(int,int,bool,int);
     void newWeatherD(WeatherD newWeatherD);
     bool chekBusy();
-    void tic();
-    void deleteweatherd();
+    bool tic();
+    WeatherD deleteweatherd();
+    WeatherD chekTimeDelete();
+    bool chekTime();
+
 };
 
 #endif // EVM_H

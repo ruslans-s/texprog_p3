@@ -4,10 +4,12 @@ evm::evm()
 {
 
 };
-void evm::setsetting(int newprocessingTime, int newtact){
+void evm::setsetting(int newprocessingTime, int newtact,bool newTimeEVM,int newWaitTime){
     processinTime = newprocessingTime;
     tact = newtact;
     busy=false;
+    timeEVM=newTimeEVM;
+    waitTime=newWaitTime;
 }
 void evm::newWeatherD(WeatherD newWeatherD) {
     WeatherDt = newWeatherD;
@@ -17,15 +19,32 @@ void evm::newWeatherD(WeatherD newWeatherD) {
 bool evm::chekBusy() {
     return busy;
 };
-void evm::tic(){
+bool evm::tic(){
   //  processinTime++;
-    if (busy==true)  workingtime++;
+    if (timeEVM==true){
+        WeatherDt.tic();
+    }
+   if (busy==true) {
+       workingtime++;
+       WeatherDt.tic();
+   }
    if(processinTime==workingtime){
-       deleteweatherd();
+       return true;
+   } else {
+       return false;
    }
 }
-void evm::deleteweatherd(){
+WeatherD evm::deleteweatherd(){
     busy=false;
-    //StatisticManager.addclients(WeatherDt);
-   // return WeatherDt;
+    WeatherDt.setSucces();
+    workingtime=0;
+    //StatisticManagers.addclients(WeatherDt);
+   return WeatherDt;
+}
+WeatherD evm::chekTimeDelete(){
+       busy=false;
+       return WeatherDt;
+}
+bool evm::chekTime(){
+     if(WeatherDt.getwaitingtime()>=waitTime) return true;
 }

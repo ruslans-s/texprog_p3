@@ -28,13 +28,13 @@ bool queue::removeWeatherD() {
     }
 }
 void queue::tic(){
-    if(WeatherDlist.count()>0){
+    if(WeatherDlist.count()!=0){
 for(int i=0;i<=WeatherDlist.size()-1;i++){
    WeatherDlist[i].tic();
 }}}
 
 WeatherD queue::getFirstWeatherD(){
-    return WeatherDlist[0];
+    if(WeatherDlist.size()!=0) return WeatherDlist[0];
 }
 
 

@@ -4,22 +4,26 @@ void StatisticManager::StatisticManagers(int ntact,int ntimework)
 {
     tact=ntact;
     timework=ntimework;
+    numbertact=1;
 }
 void StatisticManager::tic(){
     numbertact++;
+   // infomodelling.resize(infomodelling.size()+1);
 }
 
 //StatisticManager(int,int,QVector<evm> EVM);
-int StatisticManager::getinfomodeling(int tact ,int col){
-    return infomodelling[tact][col];
+QVector<QVector<int>> StatisticManager::getinfomodeling(){
+    return infomodelling;
 }
 
 void StatisticManager::addclients(WeatherD WeatherDs){
+
        infomodelling.resize(infomodelling.size()+1);
-       infomodelling[infomodelling.size()-1].resize(3);
-       infomodelling[infomodelling.size()-1][0]=numbertact;
+       int sizeInfoModellingVec=infomodelling.size()-1;
+       infomodelling[sizeInfoModellingVec].resize(3);
+       infomodelling[sizeInfoModellingVec][0]=numbertact;
        if (WeatherDs.cheksucces()==true){
-           infomodelling[infomodelling.size()-1][1]=1;
-       } else infomodelling[infomodelling.size()-1][1]=0;
-       infomodelling[infomodelling.size()-1][2]=WeatherDs.getwaitingtime();
+           infomodelling[sizeInfoModellingVec][1]=1;
+       } else infomodelling[sizeInfoModellingVec][1]=0;
+       infomodelling[sizeInfoModellingVec][2]=WeatherDs.getwaitingtime();
 }
