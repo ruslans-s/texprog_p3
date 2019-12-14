@@ -37,7 +37,7 @@ int intensity=ui->spinBox_3->text().toInt();
 int shelfLife=ui->shelfLife->text().toInt();
 int tact=ui->spinBox_4->text().toInt();
 QVector<int> timeWorkEvm{ui->spinBox->text().toInt(),ui->spinBox_2->text().toInt()};
-managers.settings(timeWork,intensity,timeWorkEvm,shelfLife,timeEVM,tact);
+managers.settings(timeWork*60,intensity,timeWorkEvm,shelfLife,timeEVM,tact);
 bool uspex=managers.startModel();
 
 QVector<QString> log = managers.getLog();

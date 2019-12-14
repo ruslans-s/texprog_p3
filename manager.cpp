@@ -20,7 +20,7 @@ ValveList.resize(3);
 bool manager::startModel(){
 Generators.generator(intensyt,1,timework);
 StatisticManagers.StatisticManagers(1,timework);
-int f,hours=0,countWeath,random;
+int tempInt=0,tempInt2=0;
 bool allBusy,evmSucess1=false,evmSucess2=false;
 ValveList[0].setTimeCheker();
 ValveList[0].getwaittime(shelfLife);
@@ -49,12 +49,21 @@ for(int i=1;i<=timework-1;i++){
     }
 
 
-    f=0;
-    for(int r1=0;r1<Generators.tic();r1++){
-       Queues.addWeatherD();
-        f++;
-    }
-logText.push_back(QString::number(i)+" Добавлено заявок: "+QString::number(f));
+//    f=0;
+//    for(int r1=0;r1<Generators.tic();r1++){
+//       Queues.addWeatherD();
+//        f++;
+//    }
+
+if(tempInt==tempInt2){
+      Queues.addWeatherD();
+      logText.push_back(QString::number(i)+" Добавлено заявка");
+      tempInt2=0;
+      tempInt=Generators.tic();
+} else {
+    tempInt2++;
+}
+//logText.push_back(QString::number(i)+" Добавлено заявок: "+QString::number(tempInt));
 
 //    if(hours==((i*tact))/60){
 //        hours++;

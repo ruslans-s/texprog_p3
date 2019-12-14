@@ -9,6 +9,12 @@
 #include <random>
 #include <QVector>
 #include "weatherd.h"
+#include <random>
+#include<QString>
+#include<math.h>
+#include <chrono>
+#include <thread>
+#include <random>
 
 class Generator
 {
