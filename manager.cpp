@@ -2,12 +2,13 @@
 
 manager::manager(){
 }
-void manager::settings(int newtimework,int nintensyt, QVector<int> newtimeworkEvm, int newShelfLife,bool newTimeEVM)
+void manager::settings(int newtimework,int nintensyt, QVector<int> newtimeworkEvm, int newShelfLife,bool newTimeEVM,int newTact)
 {
 timeEVM=newTimeEVM;
 timework=newtimework;
 intensyt=nintensyt;
 shelfLife=newShelfLife;
+tact=newTact;
 //timeworkevm=newtimeworkEvm;
 //EVMlist.resize(2);
 for(int i=0;i<=newtimeworkEvm.size()-1;i++){
@@ -19,7 +20,7 @@ ValveList.resize(3);
 bool manager::startModel(){
 Generators.generator(intensyt,1,timework);
 StatisticManagers.StatisticManagers(1,timework);
-int f;
+int f,hours=0,countWeath,random;
 bool allBusy,evmSucess1=false,evmSucess2=false;
 ValveList[0].setTimeCheker();
 ValveList[0].getwaittime(shelfLife);
@@ -50,10 +51,28 @@ for(int i=1;i<=timework-1;i++){
 
     f=0;
     for(int r1=0;r1<Generators.tic();r1++){
-        Queues.addWeatherD();
+       Queues.addWeatherD();
         f++;
     }
-    logText.push_back(QString::number(i)+" Добавлено заявок: "+QString::number(f));
+logText.push_back(QString::number(i)+" Добавлено заявок: "+QString::number(f));
+
+//    if(hours==((i*tact))/60){
+//        hours++;
+//        countWeath=Generators.tic();
+//    } else{
+//        if(countWeath!=0){
+//        random=rand()%2;
+//        if (random==1){
+//         Queues.addWeatherD();
+//          logText.push_back(QString::number(i)+" Добавлено заявок: ");
+//        }
+//        countWeath--;
+//        }
+//    }
+
+
+
+
     ValveList[0].close();
     if(Queues.numberWeatherD()!=0){
       //   ui->logView->addItem("Заявка 213123удалена");

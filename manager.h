@@ -27,9 +27,10 @@ protected:
     bool timeEVM;
     Generator Generators;
     queue Queues;
+    int tact;
 public:
     manager();
-    void settings(int,int,QVector<int>,int,bool);
+    void settings(int,int,QVector<int>,int,bool,int);
     bool startModel();
     QVector<QString> getLog();
     QVector<QVector<int>> getInfoModelling();
