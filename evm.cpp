@@ -11,6 +11,7 @@ void evm::setsetting(int newprocessingTime, int newtact,bool newTimeEVM,int newW
     timeEVM=newTimeEVM;
     waitTime=newWaitTime;
     processed=0;
+    processinTime=-5;
 }
 void evm::newWeatherD(WeatherD newWeatherD) {
     WeatherDt = newWeatherD;
@@ -23,7 +24,7 @@ void evm::newWeatherD(WeatherD newWeatherD) {
     float as=1,bs=60*averegeProcessinTime;
     std::exponential_distribution<double> distribution (as/bs);
     processinTime= (int)ceil(distribution(generator));
-
+    if(processinTime==0) processinTime=1;
 
 
 };
@@ -37,7 +38,7 @@ bool evm::tic(){
     }
    if (busy==true) {
        workingtime++;
-       WeatherDt.tic();
+    //   WeatherDt.tic();
    }
    if(processinTime==workingtime){
        return true;
