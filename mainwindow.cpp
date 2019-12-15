@@ -58,6 +58,7 @@ for(int i=0;i<=infomod.size()-1;i++){
     ui->logView->addItem(str);
 
 }
+
 str.clear();
 
 QVector<QVector<int>> info=managers.getInformation();
@@ -72,14 +73,7 @@ ui->tableView->setModel(model);
     model->setHeaderData(3,Qt::Horizontal,"Не обработанных");
     model->setHeaderData(4,Qt::Horizontal,"Обработала 1 ЭВМ");
     model->setHeaderData(5,Qt::Horizontal,"Обработала 2 ЭВМ");
- //   ui->tableView->horizontalHeader()->setSectionResizeMode(1, QHeaderView::Stretch);
-     // ui->tableView->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);
-//    for(int i=1;i<=9;i++){
-// model->setHeaderData(i,Qt::Horizontal, QChar(alph[i-1]));
-//    }
-//    for(int i=0;i<model->rowCount();i++){
-// model->setHeaderData(i,Qt::Vertical, i);
-//    }
+
 for(int row=0;row<model->rowCount();row++){
      for(int col=0;col<model->columnCount();col++) {
        index=model->index(row,col);
@@ -88,6 +82,21 @@ for(int row=0;row<model->rowCount();row++){
 }
 
 str.clear();
+
+QVector<int> busyInfo = managers.getBusyInfo();
+double r=busyInfo[0],timeWorkD=timeWork*60;
+ui->label_13->setText(QString::number(r/timeWorkD));
+r=busyInfo[1];
+ui->label_14->setText(QString::number(r/timeWorkD));
+
+double directly=0,expected=0;
+for(int i=0;i<infomod.size();i++){
+    if(infomod[i][2]>0) {
+        expected++;
+    } else directly++;
+}
+expected=expected+info[info.size()-1][1];
+ui->label_18->setNum((expected/(expected+directly)));
 
 }
 

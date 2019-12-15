@@ -17,6 +17,7 @@ protected:
     bool timeEVM; //Нужно увеличивать время ожидания заявки если она в обработчике
     int waitTime;
     int processed;
+    int tactNoBusy;
      //StatisticManager StatisticManagers;
 public:
     evm();
@@ -28,6 +29,7 @@ public:
     WeatherD chekTimeDelete();
     bool chekTime();
     int countProcessed();
+    int getTactNoBusy();
 
 };
 

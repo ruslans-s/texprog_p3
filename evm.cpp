@@ -12,6 +12,7 @@ void evm::setsetting(int newprocessingTime, int newtact,bool newTimeEVM,int newW
     waitTime=newWaitTime;
     processed=0;
     processinTime=-5;
+    tactNoBusy=1;
 }
 void evm::newWeatherD(WeatherD newWeatherD) {
     WeatherDt = newWeatherD;
@@ -37,6 +38,7 @@ bool evm::tic(){
     }
    if (busy==true) {
        workingtime++;
+       tactNoBusy++;
     //   WeatherDt.tic();
    }
    if(processinTime==workingtime){
@@ -44,6 +46,7 @@ bool evm::tic(){
    } else {
        return false;
    }
+
 }
 WeatherD evm::deleteweatherd(){
     busy=false;
@@ -62,4 +65,7 @@ bool evm::chekTime(){
 }
 int evm::countProcessed(){
     return processed;
+}
+int evm::getTactNoBusy(){
+    return tactNoBusy;
 }

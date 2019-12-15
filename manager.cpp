@@ -26,6 +26,7 @@ ValveList[0].setTimeCheker();
 ValveList[0].getwaittime(shelfLife);
 ValveList[1].open();
 ValveList[2].open();
+
 for(int i=1;i<=timework-1;i++){
     //Проверка на время ожидания в обработчике
     if(timeEVM==true){
@@ -117,7 +118,17 @@ temptact=0;
 }else{
     temptact++;
 }
+
+if((EVMlist[0].chekBusy()==false && EVMlist[1].chekBusy()==false)){
+    busy1++;
 }
+if((EVMlist[0].chekBusy()==false && EVMlist[1].chekBusy()==true)||(EVMlist[1].chekBusy()==false && EVMlist[0].chekBusy()==true)){
+    busy2++;
+}
+
+}
+logText.push_back(QString::number(busy1)+" Количество тактов когда обе эвм простаивают");
+logText.push_back(QString::number(busy2)+" Количество тактов когда одна эвм простаивает");
 }
 
 QVector<QString> manager::getLog(){
@@ -129,4 +140,6 @@ QVector<QVector<int>> manager::getInfoModelling(){
 QVector<QVector<int>> manager::getInformation(){
     return StatisticManagers.getinformation();
 }
-
+QVector<int> manager::getBusyInfo(){
+    return {busy1,busy2};
+}
