@@ -34,6 +34,7 @@ public:
     bool startModel();
     QVector<QString> getLog();
     QVector<QVector<int>> getInfoModelling();
+     QVector<QVector<int>> getInformation();
 };
 
 #endif // MANAGER_H

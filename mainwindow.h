@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 #include "queue.h"
 #include <QMainWindow>
-
+#include "QStandardItemModel"
+#include "QStandardItem"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE

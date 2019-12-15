@@ -20,7 +20,7 @@ ValveList.resize(3);
 bool manager::startModel(){
 Generators.generator(intensyt,1,timework);
 StatisticManagers.StatisticManagers(1,timework);
-int tempInt=0,tempInt2=0;
+int tempInt=0,tempInt2=0,temptact=1;
 bool allBusy,evmSucess1=false,evmSucess2=false;
 ValveList[0].setTimeCheker();
 ValveList[0].getwaittime(shelfLife);
@@ -130,13 +130,24 @@ StatisticManagers.tic();
 evmSucess1=EVMlist[0].tic();
 evmSucess2=EVMlist[1].tic();
 
-logText.push_back(QString::number(Queues.numberWeatherD())+" Кол-во заявок");
-}}
+//logText.push_back(QString::number(Queues.numberWeatherD())+" Кол-во заявок");
+if(temptact==tact){
+StatisticManagers.informationalTic(i,Queues.numberWeatherD(),EVMlist[0].countProcessed(),EVMlist[1].countProcessed());
+temptact=0;
+ //logText.push_back(QString::number(i)+" лог");
+}else{
+    temptact++;
+}
+}
+}
 
 QVector<QString> manager::getLog(){
     return logText;
 }
 QVector<QVector<int>> manager::getInfoModelling(){
     return StatisticManagers.getinfomodeling();
+}
+QVector<QVector<int>> manager::getInformation(){
+    return StatisticManagers.getinformation();
 }
 

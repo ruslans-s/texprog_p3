@@ -2,16 +2,21 @@
 #define EVM_H
 #include "weatherd.h"
 #include "statisticmanager.h"
+#include <chrono>
+#include <thread>
+#include <random>
 class evm
 {
 protected:
     bool busy; //Занят или нет
-    int processinTime; //Время работы
+    int averegeProcessinTime; //Время работы
+    int processinTime;
     int tact; //Длительность такта
     int workingtime; //Время работы с текущим клиентом
     WeatherD WeatherDt;
     bool timeEVM;
     int waitTime;
+    int processed;
      //StatisticManager StatisticManagers;
 public:
     evm();
@@ -22,6 +27,7 @@ public:
     WeatherD deleteweatherd();
     WeatherD chekTimeDelete();
     bool chekTime();
+    int countProcessed();
 
 };
 

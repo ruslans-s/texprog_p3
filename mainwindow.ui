@@ -17,23 +17,23 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>530</y>
-      <width>75</width>
-      <height>23</height>
+      <x>80</x>
+      <y>500</y>
+      <width>201</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>Старт моделирования</string>
     </property>
    </widget>
    <widget class="QListWidget" name="logView">
     <property name="geometry">
      <rect>
-      <x>470</x>
-      <y>230</y>
-      <width>451</width>
-      <height>291</height>
+      <x>370</x>
+      <y>330</y>
+      <width>171</width>
+      <height>161</height>
      </rect>
     </property>
    </widget>
@@ -41,38 +41,25 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>30</y>
-      <width>401</width>
-      <height>361</height>
+      <y>10</y>
+      <width>311</width>
+      <height>251</height>
      </rect>
     </property>
     <property name="title">
-     <string>GroupBox</string>
+     <string>Параметры моделирования</string>
     </property>
-    <widget class="QLineEdit" name="lineEdit">
-     <property name="geometry">
-      <rect>
-       <x>110</x>
-       <y>40</y>
-       <width>41</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>24</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
        <x>10</x>
        <y>40</y>
-       <width>91</width>
+       <width>151</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
-      <string>Время работы</string>
+      <string>Время моделирования</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_2">
@@ -80,25 +67,12 @@
       <rect>
        <x>10</x>
        <y>70</y>
-       <width>81</width>
+       <width>161</width>
        <height>16</height>
       </rect>
      </property>
      <property name="text">
       <string>Плотность Заказов</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox_3">
-     <property name="geometry">
-      <rect>
-       <x>170</x>
-       <y>70</y>
-       <width>42</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="value">
-      <number>2</number>
      </property>
     </widget>
     <widget class="QRadioButton" name="radioButton">
@@ -114,45 +88,161 @@
       <string>Считать время обработки</string>
      </property>
     </widget>
-    <widget class="QSpinBox" name="spinBox_4">
+    <widget class="QLabel" name="label_11">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>230</y>
-       <width>42</width>
-       <height>22</height>
+       <x>10</x>
+       <y>220</y>
+       <width>171</width>
+       <height>16</height>
       </rect>
+     </property>
+     <property name="text">
+      <string>Такт получения информаций</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>101</y>
+       <width>177</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Среднее время работы первой эвм</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>131</y>
+       <width>177</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Среднее время работы второй эвм</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>161</y>
+       <width>148</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Время достоверности заявки</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="shelfLife">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>161</y>
+       <width>39</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
      </property>
      <property name="value">
       <number>10</number>
      </property>
     </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>275</x>
+       <y>131</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ч.</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox_2">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>131</y>
+       <width>39</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="value">
+      <number>5</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>275</x>
+       <y>161</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ч.</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>101</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ч.</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="spinBox">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>101</y>
+       <width>39</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="minimum">
+      <number>1</number>
+     </property>
+     <property name="value">
+      <number>1</number>
+     </property>
+    </widget>
     <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>100</y>
-       <width>235</width>
+       <x>230</x>
+       <y>40</y>
+       <width>41</width>
        <height>22</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLineEdit" name="lineEdit">
         <property name="text">
-         <string>Среднее время работы первой эвм</string>
+         <string>24</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QSpinBox" name="spinBox">
-        <property name="value">
-         <number>1</number>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLabel" name="label_6">
+       <widget class="QLabel" name="label_10">
         <property name="text">
          <string>Ч.</string>
         </property>
@@ -163,31 +253,27 @@
     <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>130</y>
-       <width>235</width>
+       <x>230</x>
+       <y>70</y>
+       <width>71</width>
        <height>22</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QLabel" name="label_5">
-        <property name="text">
-         <string>Среднее время работы второй эвм</string>
+       <widget class="QSpinBox" name="spinBox_3">
+        <property name="minimum">
+         <number>1</number>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="spinBox_2">
         <property name="value">
-         <number>5</number>
+         <number>2</number>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="label_9">
         <property name="text">
-         <string>Ч.</string>
+         <string>З./Ч.</string>
         </property>
        </widget>
       </item>
@@ -196,31 +282,33 @@
     <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>160</y>
-       <width>211</width>
+       <x>230</x>
+       <y>220</y>
+       <width>65</width>
        <height>22</height>
       </rect>
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
-       <widget class="QLabel" name="label_4">
-        <property name="text">
-         <string>Время достоверности заявки</string>
+       <widget class="QSpinBox" name="spinBox_4">
+        <property name="minimum">
+         <number>1</number>
         </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QSpinBox" name="shelfLife">
+        <property name="maximum">
+         <number>60</number>
+        </property>
+        <property name="singleStep">
+         <number>5</number>
+        </property>
         <property name="value">
          <number>10</number>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_8">
+       <widget class="QLabel" name="label_12">
         <property name="text">
-         <string>Ч.</string>
+         <string>Мин.</string>
         </property>
        </widget>
       </item>
@@ -230,12 +318,30 @@
    <widget class="QTableView" name="tableView">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>370</x>
       <y>20</y>
-      <width>801</width>
-      <height>201</height>
+      <width>911</width>
+      <height>192</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <attribute name="horizontalHeaderMinimumSectionSize">
+     <number>100</number>
+    </attribute>
+    <attribute name="horizontalHeaderDefaultSectionSize">
+     <number>150</number>
+    </attribute>
+    <attribute name="verticalHeaderMinimumSectionSize">
+     <number>10</number>
+    </attribute>
+    <attribute name="verticalHeaderDefaultSectionSize">
+     <number>20</number>
+    </attribute>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
