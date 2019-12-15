@@ -9,12 +9,12 @@ class evm
 {
 protected:
     bool busy; //Занят или нет
-    int averegeProcessinTime; //Время работы
+    int averegeProcessinTime; // Среднее время работы
     int processinTime;
     int tact; //Длительность такта
     int workingtime; //Время работы с текущим клиентом
     WeatherD WeatherDt;
-    bool timeEVM;
+    bool timeEVM; //Нужно увеличивать время ожидания заявки если она в обработчике
     int waitTime;
     int processed;
      //StatisticManager StatisticManagers;

@@ -23,6 +23,7 @@ SOURCES += \
     manager.cpp \
     queue.cpp \
     statisticmanager.cpp \
+    task.cpp \
     valve.cpp \
     weatherd.cpp
 
@@ -33,13 +34,20 @@ HEADERS += \
     manager.h \
     queue.h \
     statisticmanager.h \
+    task.h \
     valve.h \
     weatherd.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    task.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resurs.qrc
+ QIcon(":/icon.ico");
+

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "QStandardItemModel"
 #include "QStandardItem"
+#include "task.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -18,9 +19,13 @@ public:
     queue queue;
 private slots:
     void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
+
 protected:
 
 private:
     Ui::MainWindow *ui;
+    Task *TaskWindow;
 };
+
 #endif // MAINWINDOW_H

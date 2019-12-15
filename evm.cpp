@@ -32,7 +32,6 @@ bool evm::chekBusy() {
     return busy;
 };
 bool evm::tic(){
-  //  processinTime++;
     if (timeEVM==true){
         WeatherDt.tic();
     }

@@ -16,6 +16,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     setWindowTitle("СМО. Модель вычислительного центра");
+    setWindowIcon(QIcon(":/icon.ico"));
+
+
 }
 
 MainWindow::~MainWindow()
@@ -86,4 +89,10 @@ for(int row=0;row<model->rowCount();row++){
 
 str.clear();
 
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    TaskWindow = new Task;
+    TaskWindow->show();
 }

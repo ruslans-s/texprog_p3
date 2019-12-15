@@ -19,8 +19,8 @@
 class Generator
 {
 protected:
-    int timetocreate;
-    int tact;
+  // int timetocreate;
+   // int tact;
     int numbercycles=0;
     int intensity;
     WeatherD *WeatherDs;
@@ -29,7 +29,7 @@ protected:
     int timeWork;
 public:
     QVector<int> getVec();
-    void generator(int,int,int);
+    void generator(int,int);
     int tic();
 };
 

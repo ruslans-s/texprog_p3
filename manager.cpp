@@ -18,7 +18,7 @@ for(int i=0;i<=newtimeworkEvm.size()-1;i++){
 ValveList.resize(3);
 }
 bool manager::startModel(){
-Generators.generator(intensyt,1,timework);
+Generators.generator(intensyt,timework);
 StatisticManagers.StatisticManagers(1,timework);
 int tempInt=0,tempInt2=0,temptact=1;
 bool allBusy,evmSucess1=false,evmSucess2=false;
@@ -49,11 +49,6 @@ for(int i=1;i<=timework-1;i++){
     }
 
 
-//    f=0;
-//    for(int r1=0;r1<Generators.tic();r1++){
-//       Queues.addWeatherD();
-//        f++;
-//    }
 
 if(tempInt==tempInt2){
       Queues.addWeatherD();
@@ -63,22 +58,6 @@ if(tempInt==tempInt2){
 } else {
     tempInt2++;
 }
-//logText.push_back(QString::number(i)+" Добавлено заявок: "+QString::number(tempInt));
-
-//    if(hours==((i*tact))/60){
-//        hours++;
-//        countWeath=Generators.tic();
-//    } else{
-//        if(countWeath!=0){
-//        random=rand()%2;
-//        if (random==1){
-//         Queues.addWeatherD();
-//          logText.push_back(QString::number(i)+" Добавлено заявок: ");
-//        }
-//        countWeath--;
-//        }
-//    }
-
 
 
 
