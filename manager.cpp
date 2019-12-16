@@ -8,7 +8,7 @@ manager::manager(int newtimework,int nintensyt, QVector<int> newtimeworkEvm, int
     tact=newTact;
     //timeworkevm=newtimeworkEvm;
     //EVMlist.resize(2);
-    for(int i=0;i<=newtimeworkEvm.size()-1;i++){
+    for(int i=0;i<newtimeworkEvm.size();i++){
        EVMlist.resize(EVMlist.size()+1);
        EVMlist[i].setsetting(newtimeworkEvm[i],1,timeEVM,shelfLife);
     }
@@ -21,8 +21,8 @@ manager::manager(int newtimework,int nintensyt, QVector<int> newtimeworkEvm, int
 //intensyt=nintensyt;
 //shelfLife=newShelfLife;
 //tact=newTact;
-////timeworkevm=newtimeworkEvm;
-////EVMlist.resize(2);
+//timeworkevm=newtimeworkEvm;
+//EVMlist.resize(2);
 //for(int i=0;i<=newtimeworkEvm.size()-1;i++){
 //   EVMlist.resize(EVMlist.size()+1);
 //   EVMlist[i].setsetting(newtimeworkEvm[i],1,timeEVM,shelfLife);
@@ -75,7 +75,8 @@ if(tempInt==tempInt2){ //Добавление заявки
 
 
     ValveList[0].close();
-    if(Queues.numberWeatherD()!=0){//Если количество заявок в очереди не равно 0 то начинается работа с заявками
+    if(Queues.numberWeatherD()>0){//Если количество заявок в очереди не равно 0 то начинается работа с заявками
+        logText.push_back(QString::number(Queues.numberWeatherD())+" Заявка удалена из-за сликом большого времени ожидания");
         ValveList[0].chekwaittime((Queues.getFirstWeatherD()).getwaitingtime()); //Работа с 0 клапаном для проверки времени ожидания заявки
         if(ValveList[0].chekopened()){//Удаляем заявку если прошло более 10 часов
             StatisticManagers.addclients(Queues.getFirstWeatherD());

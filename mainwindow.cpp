@@ -39,10 +39,11 @@ int intensity=ui->spinBox_3->text().toInt();
 int shelfLife=ui->shelfLife->text().toInt();
 int tact=ui->spinBox_4->text().toInt();
 QVector<int> timeWorkEvm{ui->spinBox->text().toInt(),ui->spinBox_2->text().toInt()};
+
 manager managers(timeWork*60,intensity,timeWorkEvm,shelfLife*60,timeEVM,tact);
 managers.startModel();
 
-//log= managers.getLog();
+log= managers.getLog();
 //for(int i=0;i<=log.size()-1;i++){
 //    ui->logView->addItem(log[i]);
 //}
@@ -102,6 +103,8 @@ ui->label_23->setNum(info[info.size()-1][4]);
 ui->label_24->setNum(info[info.size()-1][5]);
 ui->label_25->setNum(info[info.size()-1][2]);
 ui->label_26->setNum(info[info.size()-1][3]);
+busyInfo.clear();
+infomod.clear();
 }
 
 void MainWindow::on_pushButton_2_clicked() // Октрытие окна задания
@@ -128,5 +131,5 @@ void MainWindow::on_save_clicked()
 
             file.close();
         }
-
+log.clear();
 }
