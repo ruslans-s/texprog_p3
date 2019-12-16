@@ -33,15 +33,14 @@ bool timeEVM=false;
 if(ui->radioButton->isChecked()){
     timeEVM=true;
 }
-//ui->logView->clear();
-  manager managers;
+
 int timeWork=ui->lineEdit->text().toInt();
 int intensity=ui->spinBox_3->text().toInt();
 int shelfLife=ui->shelfLife->text().toInt();
 int tact=ui->spinBox_4->text().toInt();
 QVector<int> timeWorkEvm{ui->spinBox->text().toInt(),ui->spinBox_2->text().toInt()};
-managers.settings(timeWork*60,intensity,timeWorkEvm,shelfLife*60,timeEVM,tact);
-bool uspex=managers.startModel();
+manager managers(timeWork*60,intensity,timeWorkEvm,shelfLife*60,timeEVM,tact);
+managers.startModel();
 
 //log= managers.getLog();
 //for(int i=0;i<=log.size()-1;i++){
@@ -105,15 +104,16 @@ ui->label_25->setNum(info[info.size()-1][2]);
 ui->label_26->setNum(info[info.size()-1][3]);
 }
 
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_pushButton_2_clicked() // Октрытие окна задания
 {
     TaskWindow = new Task;
     TaskWindow->show();
 }
-
+// Сохранение логов в файл
 void MainWindow::on_save_clicked()
 {
        // QVector<QString> log = managers.getLog();
+    //Октрытие окна для выбора директорий сохранения
          QString fileName=QFileDialog::getSaveFileName( 0,"Сохранить файл как","C:\\Users\\RS\\Desktop","txt(*.txt)" );
         QFile file(fileName);
         QString str;

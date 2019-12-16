@@ -2,7 +2,6 @@
 #include "statisticmanager.h"
 evm::evm()
 {
-
 };
 void evm::setsetting(int newprocessingTime, int newtact,bool newTimeEVM,int newWaitTime){
     averegeProcessinTime = newprocessingTime;
@@ -53,7 +52,6 @@ WeatherD evm::deleteweatherd(){
     WeatherDt.setSucces();
     workingtime=0;
     processed++;
-    //StatisticManagers.addclients(WeatherDt);
    return WeatherDt;
 }
 WeatherD evm::chekTimeDelete(){

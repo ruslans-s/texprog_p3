@@ -19,13 +19,10 @@
 class Generator
 {
 protected:
-  // int timetocreate;
-   // int tact;
     int numbercycles=0;
     int intensity;
     WeatherD *WeatherDs;
     QVector<int> poissonAp;
-   // queue queue;
     int timeWork;
 public:
     QVector<int> getVec();

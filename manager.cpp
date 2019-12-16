@@ -1,23 +1,35 @@
 #include "manager.h"
 
-manager::manager(){
+manager::manager(int newtimework,int nintensyt, QVector<int> newtimeworkEvm, int newShelfLife,bool newTimeEVM,int newTact){
+    timeEVM=newTimeEVM;
+    timework=newtimework;
+    intensyt=nintensyt;
+    shelfLife=newShelfLife;
+    tact=newTact;
+    //timeworkevm=newtimeworkEvm;
+    //EVMlist.resize(2);
+    for(int i=0;i<=newtimeworkEvm.size()-1;i++){
+       EVMlist.resize(EVMlist.size()+1);
+       EVMlist[i].setsetting(newtimeworkEvm[i],1,timeEVM,shelfLife);
+    }
+    ValveList.resize(3);
 }
-void manager::settings(int newtimework,int nintensyt, QVector<int> newtimeworkEvm, int newShelfLife,bool newTimeEVM,int newTact)
-{
-timeEVM=newTimeEVM;
-timework=newtimework;
-intensyt=nintensyt;
-shelfLife=newShelfLife;
-tact=newTact;
-//timeworkevm=newtimeworkEvm;
-//EVMlist.resize(2);
-for(int i=0;i<=newtimeworkEvm.size()-1;i++){
-   EVMlist.resize(EVMlist.size()+1);
-   EVMlist[i].setsetting(newtimeworkEvm[i],1,timeEVM,shelfLife);
-}
-ValveList.resize(3);
-}
-bool manager::startModel(){
+//void manager::settings(int newtimework,int nintensyt, QVector<int> newtimeworkEvm, int newShelfLife,bool newTimeEVM,int newTact)
+//{
+//timeEVM=newTimeEVM;
+//timework=newtimework;
+//intensyt=nintensyt;
+//shelfLife=newShelfLife;
+//tact=newTact;
+////timeworkevm=newtimeworkEvm;
+////EVMlist.resize(2);
+//for(int i=0;i<=newtimeworkEvm.size()-1;i++){
+//   EVMlist.resize(EVMlist.size()+1);
+//   EVMlist[i].setsetting(newtimeworkEvm[i],1,timeEVM,shelfLife);
+//}
+//ValveList.resize(3);
+//}
+void manager::startModel(){
 Generators.generator(intensyt,timework);
 StatisticManagers.StatisticManagers(1,timework);
 int tempInt=0,tempInt2=0,temptact=1;
@@ -51,7 +63,7 @@ for(int i=1;i<=timework-1;i++){
 
 
 
-if(tempInt==tempInt2){
+if(tempInt==tempInt2){ //Добавление заявки
       Queues.addWeatherD();
       logText.push_back(QString::number(i)+" Добавлено заявка");
       tempInt2=0;
@@ -63,17 +75,15 @@ if(tempInt==tempInt2){
 
 
     ValveList[0].close();
-    if(Queues.numberWeatherD()!=0){
-      //   ui->logView->addItem("Заявка 213123удалена");
-        ValveList[0].chekwaittime((Queues.getFirstWeatherD()).getwaitingtime());
+    if(Queues.numberWeatherD()!=0){//Если количество заявок в очереди не равно 0 то начинается работа с заявками
+        ValveList[0].chekwaittime((Queues.getFirstWeatherD()).getwaitingtime()); //Работа с 0 клапаном для проверки времени ожидания заявки
         if(ValveList[0].chekopened()){//Удаляем заявку если прошло более 10 часов
             StatisticManagers.addclients(Queues.getFirstWeatherD());
             Queues.removeWeatherD();
-    //        ui->logView->addItem("Заявка удалена");
              logText.push_back(QString::number(i)+" Заявка удалена из-за сликом большого времени ожидания");
         }
 
-
+    //Установка клапанов в необходимые положения
     if(EVMlist[0].chekBusy()==false){
         ValveList[1].open();
     }else{
@@ -85,10 +95,12 @@ if(tempInt==tempInt2){
         ValveList[2].close();
     }
 
+
+
     allBusy=false;
     if((ValveList[1].chekopened()==false && ValveList[2].chekopened()==false) || Queues.numberWeatherD()==0) allBusy=true;
-    while (allBusy==false) {
-        // logText.push_back(QString::number(i)+" Добавленно в 15123123 эвм");
+    while (allBusy==false) {//Добавление заявок в обработчики
+
         if((ValveList[1].chekopened())==true){
             EVMlist[0].newWeatherD(Queues.getFirstWeatherD());
             Queues.removeWeatherD();
@@ -104,17 +116,16 @@ if(tempInt==tempInt2){
         }
     if((ValveList[1].chekopened()==false && ValveList[2].chekopened()==false )|| Queues.numberWeatherD()==0) allBusy=true;
     }  }
-Queues.tic();
-StatisticManagers.tic();
 
+Queues.tic(); // Увеличение системного времени в классах на 1 шаг
+StatisticManagers.tic();
 evmSucess1=EVMlist[0].tic();
 evmSucess2=EVMlist[1].tic();
 
-//logText.push_back(QString::number(Queues.numberWeatherD())+" Кол-во заявок");
+
 if(temptact==tact){
 StatisticManagers.informationalTic(i,Queues.numberWeatherD(),EVMlist[0].countProcessed(),EVMlist[1].countProcessed());
 temptact=0;
- //logText.push_back(QString::number(i)+" лог");
 }else{
     temptact++;
 }

@@ -6,7 +6,6 @@ using namespace std;
 
 void Generator::generator(int newintensity, int newTimeWork){
     intensity = newintensity;
-   // tact = newtact;
     timeWork=newTimeWork;
     int seed = std::chrono::system_clock::now().time_since_epoch().count();
     std::default_random_engine generator (seed);

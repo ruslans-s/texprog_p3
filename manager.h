@@ -30,9 +30,8 @@ protected:
     int tact;
     int busy1=0,busy2=0;
 public:
-    manager();
-    void settings(int,int,QVector<int>,int,bool,int);
-    bool startModel();
+    manager(int,int,QVector<int>,int,bool,int);
+    void startModel();
     QVector<QString> getLog();
     QVector<QVector<int>> getInfoModelling();
     QVector<QVector<int>> getInformation();
