@@ -2,10 +2,10 @@
 #include "ui_mainwindow.h"
 #include "manager.h"
 #include "generator.h"
-
+#include"QFile"
 #include "evm.h"
-
-
+#include "QTextStream"
+#include "QFileDialog"
 #include "statisticmanager.h"
 #include "valve.h"
 #include "weatherd.h"
@@ -33,8 +33,8 @@ bool timeEVM=false;
 if(ui->radioButton->isChecked()){
     timeEVM=true;
 }
-ui->logView->clear();
-manager managers;
+//ui->logView->clear();
+  manager managers;
 int timeWork=ui->lineEdit->text().toInt();
 int intensity=ui->spinBox_3->text().toInt();
 int shelfLife=ui->shelfLife->text().toInt();
@@ -43,21 +43,21 @@ QVector<int> timeWorkEvm{ui->spinBox->text().toInt(),ui->spinBox_2->text().toInt
 managers.settings(timeWork*60,intensity,timeWorkEvm,shelfLife*60,timeEVM,tact);
 bool uspex=managers.startModel();
 
-QVector<QString> log = managers.getLog();
-for(int i=0;i<=log.size()-1;i++){
-    ui->logView->addItem(log[i]);
-}
+//log= managers.getLog();
+//for(int i=0;i<=log.size()-1;i++){
+//    ui->logView->addItem(log[i]);
+//}
 QVector<QVector<int>> infomod=managers.getInfoModelling();
 QString str;
-for(int i=0;i<=infomod.size()-1;i++){
-    str.clear();
-    for(int j=0;j<=infomod[i].size()-1;j++)
-    {
-        str=str+" "+QString::number(infomod[i][j]);
-    }
-    ui->logView->addItem(str);
+//for(int i=0;i<=infomod.size()-1;i++){
+//    str.clear();
+//    for(int j=0;j<=infomod[i].size()-1;j++)
+//    {
+//        str=str+" "+QString::number(infomod[i][j]);
+//    }
+//    ui->logView->addItem(str);
 
-}
+//}
 
 str.clear();
 
@@ -97,11 +97,36 @@ for(int i=0;i<infomod.size();i++){
 }
 expected=expected+info[info.size()-1][1];
 ui->label_18->setNum((expected/(expected+directly)));
-
+//ui->save->
+ui->save->setEnabled(true);
+ui->label_23->setNum(info[info.size()-1][4]);
+ui->label_24->setNum(info[info.size()-1][5]);
+ui->label_25->setNum(info[info.size()-1][2]);
+ui->label_26->setNum(info[info.size()-1][3]);
 }
 
 void MainWindow::on_pushButton_2_clicked()
 {
     TaskWindow = new Task;
     TaskWindow->show();
+}
+
+void MainWindow::on_save_clicked()
+{
+       // QVector<QString> log = managers.getLog();
+         QString fileName=QFileDialog::getSaveFileName( 0,"Сохранить файл как","C:\\Users\\RS\\Desktop","txt(*.txt)" );
+        QFile file(fileName);
+        QString str;
+        QTextStream out(&file); //Создание потока для ввода текста в файл
+        if (file.open(QIODevice::WriteOnly))
+        {
+            // out<<( str="Исходный текст: ")<< endl;
+             for(int i=0;i<=log.size()-1;i++){ // Сохранение исходного текста
+                 out<<log[i]<<endl;
+             }
+
+
+            file.close();
+        }
+
 }

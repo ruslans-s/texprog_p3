@@ -2,5 +2,9 @@
     <qresource prefix="/">
         <file>Qscheme.png</file>
         <file>icon.ico</file>
+        <file>evm.jpg</file>
+        <file>evm2.jpg</file>
+        <file>weatherDno.jpg</file>
+        <file>weatherDok.jpg</file>
     </qresource>
 </RCC>
