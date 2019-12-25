@@ -49,5 +49,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resurs.qrc
- QIcon(":/icon.ico");
 

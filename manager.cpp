@@ -141,6 +141,7 @@ if((EVMlist[0].chekBusy()==false && EVMlist[1].chekBusy()==true)||(EVMlist[1].ch
 }
 logText.push_back(QString::number(busy1)+" Количество тактов когда обе эвм простаивают");
 logText.push_back(QString::number(busy2)+" Количество тактов когда одна эвм простаивает");
+StatisticManagers.informationalTic(timework-1,Queues.numberWeatherD(),EVMlist[0].countProcessed(),EVMlist[1].countProcessed());
 }
 
 QVector<QString> manager::getLog(){
